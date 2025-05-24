@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1>Search Results</h1>
+            <p class="subtitle">Refine your search to explore more</p>
+            
+            <form action="{{ url_for('search') }}" method="post" class="filter-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" id="first_name" name="first_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" id="last_name" name="last_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="father_name">Father's Name:</label>
+                        <input type="text" id="father_name" name="father_name">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="id_number">ID Number:</label>
+                        <input type="text" id="id_number" name="id_number">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="">All</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="has_voted">Voting Status:</label>
+                        <select id="has_voted" name="has_voted">
+                            <option value="">All</option>
+                            <option value="true">Voted</option>
+                            <option value="false">Not Voted</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="province_id">Province:</label>
+                        <select id="province_id" name="province_id">
+                            <option value="">All Provinces</option>
+                            {% for province in provinces %}
+                                <option value="{{ province[0] }}">{{ province[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city_id">City:</label>
+                        <select id="city_id" name="city_id">
+                            <option value="">All Cities</option>
+                            {% for city in cities %}
+                                <option value="{{ city[0] }}">{{ city[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="polling_station_id">Polling Station:</label>
+                        <select id="polling_station_id" name="polling_station_id">
+                            <option value="">All Polling Stations</option>
+                            {% for station in polling_stations %}
+                                <option value="{{ station[0] }}">{{ station[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="election_id">Election:</label>
+                        <select id="election_id" name="election_id">
+                            <option value="">All Elections</option>
+                            {% for election in elections %}
+                                <option value="{{ election[0] }}">{{ election[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <button type="submit" class="btn">Search Voters</button>
+                    <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+                </div>
+            </form>
+            
+            <div class="results-section">
+                {% if voters %}
+                    <table>
+                        <thead>
+                            <tr>
+                                {% for column in columns %}
+                                    <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for voter in voters %}
+                                <tr>
+                                    {% for value in voter %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="no-results">No voters found matching your criteria.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
