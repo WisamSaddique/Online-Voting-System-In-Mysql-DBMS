@@ -14,19 +14,22 @@ A comprehensive web-based voting platform designed to facilitate secure and tran
 ## 📸 System Screenshots
 
 ### 1. Live Voting Dashboard
-![Voting System Explorer](path/to/image1.png)
+<img width="491" alt="Main Page" src="https://github.com/user-attachments/assets/9fbeb1d3-c4aa-4bb8-a06b-2b73c13551e5" />
+
 *Real-time vote distribution showing current results by party with comprehensive filtering options*
 
 ### 2. Add Vote Interface
-![Add Vote](path/to/image2.png)
+<img width="485" alt="add vote page" src="https://github.com/user-attachments/assets/8589a0c6-0473-4507-8d94-9a0b7bbd8855" />
+
 *Secure voting interface for casting votes with voter verification*
 
 ### 3. Add New Voter Registration
-![Add New Voter](path/to/image3.png)
+<img width="473" alt="add new voter page" src="https://github.com/user-attachments/assets/5873fda5-31ee-416a-98aa-c7adccebb38b" />
+
 *Comprehensive voter registration form with all required demographic information*
 
 ### 4. Search Results & Voter Database
-![Search Results](path/to/image4.png)
+<img width="491" alt="search Voter Page" src="https://github.com/user-attachments/assets/5cf0a147-7131-41f8-8f45-49e86dd1bc6b" />
 *Advanced search results displaying complete voter information and voting status*
 
 ## 🛠️ Technologies Used
